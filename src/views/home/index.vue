@@ -1,12 +1,14 @@
 <template>
   <div>
     <h1>子应用通用脚手架页面</h1>
-    <button @click="go('me')" class="btn">查看我的页面</button><br/><br/>
-    <button @click="go('about')" class="btn">查看关于页面</button><br/><br/>
-    <button @click="go('report')" class="btn">查看报表页面</button>
+
+    <van-button type="primary" @click="go('me')">查看我的页面</van-button><br/><br/>
+    <van-button type="primary" @click="go('about')">查看关于页面</van-button><br/><br/>
+    <van-button type="primary" @click="go('report')">查看报表页面</van-button>
   </div>
 </template>
 <script>
+
 export default {
   name: 'HomePage',
   props: {

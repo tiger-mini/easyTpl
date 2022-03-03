@@ -10,7 +10,6 @@ export default {
   name: 'App',
   components: {  },
   mounted() {
-    console.log('ddd', this.$router)
   },
 }
 </script>
