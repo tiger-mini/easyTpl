@@ -1,6 +1,7 @@
 // webpack配置
-const isDev = process.env.NODE_ENV === 'DEV' || process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'DEV' || process.env.NODE_ENV === 'development';
 const baseConfig = {
+    lintOnSave: false,
     publicPath: isDev ? '/' : './',
     css: {
         // Enable CSS source maps.

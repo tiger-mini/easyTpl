@@ -13,6 +13,11 @@ export default [
         component: Me
     },
     {
+        path: '/setting',
+        name: 'setting',
+        component: () => import('../views/me/setting')
+    },
+    {
         path: '/report',
         name: 'report',
         component: () => import('../views/report/index')

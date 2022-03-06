@@ -1,4 +1,4 @@
-# vuecli4.x
+# vuecli4.x 通用模板
 
 ## Project setup
 ```
@@ -26,3 +26,5 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ### 本地构建命令
 node ./node_modules/@yl/super-app-scripts/bin/index.js code=yunziguan mode=build
+
+
