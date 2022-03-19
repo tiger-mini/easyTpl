@@ -8,7 +8,8 @@
     "build": "vue-cli-service build",
     "test:build": "vue-cli-service build",
     "prod:build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lint-fix": "eslint --fix src/**"
   },
   "dependencies": {
     "axios": "^0.26.0",
@@ -21,6 +22,8 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.17.0",
+    "@commitlint/cli": "^16.2.3",
+    "@commitlint/config-conventional": "^16.2.1",
     "@tailwindcss/postcss7-compat": "^2.2.17",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
@@ -32,11 +35,14 @@
     "eslint-config-alloy": "3",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-vue": "^8.5.0",
+    "husky": "^4.2.3",
     "less": "^4.1.2",
     "less-loader": "^7.0.0",
+    "lint-staged": "^12.3.5",
     "postcss": "^7",
     "postcss-px-to-viewport": "^1.1.1",
     "postcss-style-px-to-viewport": "^2.1.0",
+    "prettier": "^2.5.1",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "vue-eslint-parser": "^8.3.0",
     "vue-template-compiler": "^2.6.11"
@@ -55,15 +61,28 @@
     },
     "rules": {
       "no-": "off",
-      "no-debugger":"off",
+      "no-debugger": "off",
       "no-console": "off",
-      "no-empty":"off",
-      "no-unused-vars":"off"
+      "no-empty": "off",
+      "no-unused-vars": "off"
     }
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "prettier --write",
+      "vue-cli-service lint",
+      "git add"
+    ]
+  }
 }
