@@ -1,3 +1,5 @@
+const PXToVW = require('postcss-px-to-viewport');
+
 // webpack配置
 const isDev = process.env.NODE_ENV === 'DEV' || process.env.NODE_ENV === 'development';
 const baseConfig = {
@@ -9,6 +11,25 @@ const baseConfig = {
         loaderOptions: {
             scss: {
                 prependData: '@import "~@src/styles/variable.scss";'
+            },
+            postcss: {
+                plugins: [
+                    require('tailwindcss'),
+                    require('autoprefixer'),
+                    new PXToVW({
+                        unitToConvert: 'px',
+                        viewportWidth: 375,
+                        unitPrecision: 5,
+                        propList: ['*'],
+                        viewportUnit: 'vw',
+                        fontViewportUnit: 'vw',
+                        selectorBlackList: [],
+                        minPixelValue: 1,
+                        mediaQuery: false,
+                        replace: false,
+                        exclude: [/node_modules/]
+                    })
+                ]
             }
         }
     },
