@@ -52,7 +52,17 @@ const baseConfig = {
         console.log('configureWebpack', config)
     },
     chainWebpack: config => {
-        console.log('chainWebpack', config)
+        console.log('chainWebpack', config);
+
+        config.module
+            .rule('vue')
+            .test(/\.vue$/)
+            .use('postcss-style-px-to-viewport')
+            .loader('postcss-style-px-to-viewport')
+            .options({
+                viewportWidth: 375 // 此处的viewportWidth 需与 PXToVW 方法中的保持一致
+            })
+
     }
 }
 
