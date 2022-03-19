@@ -1,1 +1,6 @@
-export default []
+export default [
+    {
+        path: '/',
+        redirect: 'home'
+    }
+]

@@ -5,6 +5,21 @@ const isDev = process.env.NODE_ENV === 'DEV' || process.env.NODE_ENV === 'develo
 const baseConfig = {
     lintOnSave: false,
     publicPath: isDev ? '/' : './',
+    devServer: {
+        open: true,
+        port: 8080,
+        https: false,
+        proxy: {
+            '/': {
+                target: 'http://merchants.zhenye.com:91',
+                ws: true,
+                changeOrigin: true,
+                // pathReWrite: {
+                //     '^/': ''
+                // }
+            }
+        }
+    },
     css: {
         // Enable CSS source maps.
         sourceMap: isDev,
@@ -41,5 +56,5 @@ const baseConfig = {
     }
 }
 
-const config = Object.assign({}, baseConfig)
+const config = {...baseConfig};
 module.exports = config
