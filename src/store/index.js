@@ -5,11 +5,20 @@ Vue.use(Vuex);
 
 const modulesFiles = require.context('./modules', true, /\.js$/);
 const modules = modulesFiles.keys().reduce((modules, modulePath) => {
-    const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1') //获取文件名：app,permission,user
-    const content = modulesFiles(modulePath) //通过路径获取每个文件的内容
-    modules[moduleName] = content.default //比如app.js文件,modules.app等于export default的内容
+    const moduleName = modulePath.replace(/^\.\/(.*)\.\w+$/, '$1')
+    const content = modulesFiles(modulePath)
+    modules[moduleName] = content.default
     return modules
 }, {});
+
+const featureModelContext = require.context('../views', true, /\/module\.js$/); // 业务Model文件（页面级）
+const featureModelFiles = featureModelContext.keys().map((key) => featureModelContext(key));
+featureModelFiles.forEach((item) => {
+    const moduleName = item.default?.name;
+    if (moduleName) {
+        modules[moduleName] = item.default;
+    }
+});
 
 export default new Vuex.Store({
     modules

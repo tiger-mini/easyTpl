@@ -1,12 +1,22 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import routes from './routes';
+
+import rootRoutes from './routes';
 
 Vue.use(VueRouter);
 
+// 遍历分布式路由
+let routes = [];
+// 遍历全部路由文件
+const routesContext = require.context('../views/', true, /routes\.js$/);
+const routesFiles = routesContext.keys().map((key) => routesContext(key));
+routesFiles.forEach((module) => {
+    routes = [...routes, ...module.default];
+});
+
 const router = new VueRouter({
     mode: 'hash',
-    routes
+    routes: [...rootRoutes, ...routes],
 });
 
 router.beforeEach((to, from, next) => {
