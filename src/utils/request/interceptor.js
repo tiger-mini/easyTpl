@@ -1,10 +1,3 @@
-/*
- * @Author: zhanxuwen
- * @Date: 2022/3/7 22:42
- * @LastEditors: zhanxuwen
- * @LastEditTime: 2022/3/7 22:42
- * @Description: 请求的拦截处理，主要针对接口常规报错、网络报错、系统超时、权限认证等做拦截
- */
 /**
  * 返回基础的axios对象，并对请求和响应做处理
  * 前后端约定接口返回结构规范
@@ -16,7 +9,7 @@
  */
 import axios from "axios";
 
-import { apiDomain,DEV } from '../../project.config';
+import { DEV } from '../../project.config';
 import getBaseUrl from './baseUrl';
 
 
