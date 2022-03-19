@@ -1,6 +1,6 @@
 const state = {
     footerMenuNames: ['home', 'report', 'me', 'about'], // 菜单名称
-    active: 0, //当前选中的菜单,
+    active: 0, // 当前选中的菜单,
     isMenu: false, // 是否是主菜单
 };
 

@@ -1,5 +1,5 @@
 <template>
-  <tabbar v-model="getActive" @change="onChange" v-show="getIsMenu">
+  <tabbar v-show="getIsMenu" v-model="getActive" @change="onChange">
     <tabbar-item icon="home-o">首页</tabbar-item>
     <tabbar-item icon="bar-chart-o">报表</tabbar-item>
     <tabbar-item icon="friends-o">我</tabbar-item>

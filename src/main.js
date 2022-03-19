@@ -1,10 +1,12 @@
+import 'vant/lib/index.css'
+import './styles/index.less';
+
 import Vue from 'vue'
+
 import App from './App.vue'
 import router from './router/index';
 import store from './store/index';
-import 'vant/lib/index.css'
 import request from "./utils/request/request";
-import './styles/index.less';
 
 Vue.config.productionTip = false
 

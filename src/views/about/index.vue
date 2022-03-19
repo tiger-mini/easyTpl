@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-import {createNamespacedHelpers} from 'vuex'
 import {Button} from "vant";
+import {createNamespacedHelpers} from 'vuex'
 
 const { mapActions } = createNamespacedHelpers('header');
 

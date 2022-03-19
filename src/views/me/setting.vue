@@ -46,7 +46,7 @@
 
 </template>
 <script>
-import {NavBar, Popover, Icon} from "vant";
+import {Icon,NavBar, Popover} from "vant";
 import {createNamespacedHelpers} from 'vuex'
 
 const {mapActions} = createNamespacedHelpers('header');

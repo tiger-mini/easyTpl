@@ -1,5 +1,3 @@
-/* * @Author: zhanxuwen * @Date: 2022/3/15 21:29 * @LastEditors: zhanxuwen * @LastEditTime: 2022/3/15 21:29 *
-@Description: 折叠显示总数 */
 <template>
     <span class="flex">
         <span class="w-0 flex-1 c-ellipsis">{{ resource.join(',') }}</span>

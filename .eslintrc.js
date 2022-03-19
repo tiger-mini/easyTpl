@@ -30,6 +30,7 @@ module.exports = {
             "disallowVueBuiltInComponents": false,
             "disallowVue3BuiltInComponents": false
         }],
+        "vue/no-duplicate-attributes": "off",
         "simple-import-sort/imports": "error",
         "simple-import-sort/exports": "error"
     }

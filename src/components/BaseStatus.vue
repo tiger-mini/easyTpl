@@ -1,6 +1,3 @@
-/* * @Author: zhanxuwen * @Date: 2022/3/15 21:06 * @LastEditors: zhanxuwen * @LastEditTime: 2022/3/15 21:06 *
-@Description: 状态显示组件 */
-
 <template>
     <span :class="'base-status ' + status">
         <slot></slot>

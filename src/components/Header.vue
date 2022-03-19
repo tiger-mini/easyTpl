@@ -1,21 +1,21 @@
 <template>
-  <nav-bar :title="header.title" left-arrow left-text="返回" v-show="!header.isHiddenGlobalHeader">
+  <nav-bar v-show="!header.isHiddenGlobalHeader" :title="header.title" left-arrow left-text="返回">
     <template #left>
-      <icon name="arrow-left" v-show="!menu.isMenu" @click="goBack"/>
+      <icon v-show="!menu.isMenu" name="arrow-left" @click="goBack"/>
     </template>
     <template #right>
       <div class="qr-class" />
       <template v-for="item in header.rightTemp">
-        <icon :name="item.iconName" size="18" class="right-op-icon" :class="item.className || ''" @click="item.fn"/>
+        <icon :key="item.iconName" :name="item.iconName" size="18" class="right-op-icon" :class="item.className || ''" @click="item.fn"/>
       </template>
     </template>
   </nav-bar>
 </template>
 
 <script>
+import { Icon,NavBar } from 'vant';
 import {createNamespacedHelpers} from 'vuex'
-import { NavBar, Icon } from 'vant';
-const {mapState, mapActions} = createNamespacedHelpers(['header', 'menu']);
+const {mapState} = createNamespacedHelpers(['header', 'menu']);
 
 export default {
   name: "HeaderComponent",
