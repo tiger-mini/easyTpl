@@ -11,7 +11,6 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@yl/super-app-scripts": "^1.1.13",
     "core-js": "^3.6.5",
     "vant": "^2.10.0",
     "vue": "^2.6.11",
