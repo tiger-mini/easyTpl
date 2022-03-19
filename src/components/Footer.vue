@@ -1,17 +1,19 @@
 <template>
-  <van-tabbar v-model="getActive" @change="onChange" v-show="getIsMenu">
-    <van-tabbar-item icon="home-o">首页</van-tabbar-item>
-    <van-tabbar-item icon="bar-chart-o">报表</van-tabbar-item>
-    <van-tabbar-item icon="friends-o">我</van-tabbar-item>
-    <van-tabbar-item icon="setting-o">设置</van-tabbar-item>
-  </van-tabbar>
+  <tabbar v-model="getActive" @change="onChange" v-show="getIsMenu">
+    <tabbar-item icon="home-o">首页</tabbar-item>
+    <tabbar-item icon="bar-chart-o">报表</tabbar-item>
+    <tabbar-item icon="friends-o">我</tabbar-item>
+    <tabbar-item icon="setting-o">设置</tabbar-item>
+  </tabbar>
 </template>
 
 <script>
 import {createNamespacedHelpers} from 'vuex';
 const { mapActions } = createNamespacedHelpers('menu');
+import { Tabbar, TabbarItem } from 'vant';
 
 export default {
+  components: {Tabbar, TabbarItem},
   data() {
     return {
 

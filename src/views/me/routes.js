@@ -1,8 +1,10 @@
+import Me from './index';
+
 export default [
     {
         path: '/me',
         name: 'me',
-        component: () => import('./index')
+        component: Me
     },
     {
         path: '/setting',

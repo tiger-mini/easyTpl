@@ -6,15 +6,17 @@
     </div>
     <br/>
     <br/>
-    <van-button type="default" @click="goSetting">设置</van-button>
+    <Button type="primary" @click="goSetting">设置</Button>
   </div>
 </template>
 <script>
+import { Button } from 'vant';
 import {createNamespacedHelpers} from 'vuex'
 const {mapActions} = createNamespacedHelpers('header');
 
 export default {
   name: 'MePage',
+  components: {Button},
   props: {
     msg: String
   },

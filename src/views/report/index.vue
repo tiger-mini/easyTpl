@@ -1,28 +1,27 @@
 <template>
   <div>
-    <van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-      <van-list
+    <pull-refresh v-model="refreshing" @refresh="onRefresh">
+      <list
           v-model="loading"
           :finished="finished"
           finished-text="没有更多了"
           @load="onLoad"
       >
-        <van-cell v-for="item in list" :key="item" :title="item"/>
-      </van-list>
-    </van-pull-refresh>
+        <cell v-for="item in list" :key="item" :title="item"/>
+      </list>
+    </pull-refresh>
   </div>
 </template>
 
 <script>
+import {Cell,List, PullRefresh} from 'vant';
 import {createNamespacedHelpers} from 'vuex'
 
 const {mapActions} = createNamespacedHelpers('header');
 
 export default {
   name: 'ReportPage',
-  props: {
-    msg: String
-  },
+  components: {PullRefresh, List, Cell},
   data() {
     return {
       list: [],

@@ -2,15 +2,18 @@
   <div>
     <h1>简介内容
     </h1>
-    <van-button type="default" @click="go">查看我的页面</van-button>
+    <Button type="primary" @click="go">查看我的页面</Button>
   </div>
 </template>
 <script>
 import {createNamespacedHelpers} from 'vuex'
+import {Button} from "vant";
+
 const { mapActions } = createNamespacedHelpers('header');
 
 export default {
   name: 'AboutPage',
+  components: {Button},
   data() {
     return {
 

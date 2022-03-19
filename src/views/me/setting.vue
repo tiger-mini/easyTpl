@@ -1,13 +1,13 @@
 <template>
   <div class="setting-page-wrap">
-    <van-nav-bar
+    <nav-bar
         title="设置"
         left-arrow
         @click-left="goBack"
     >
       <template #right>
-        <van-icon name="user-o" size="18"/>
-        <van-popover
+        <icon name="user-o" size="18"/>
+        <popover
             v-model="showPopover"
             trigger="click"
             :actions="actions"
@@ -15,11 +15,11 @@
             placement="bottom-end"
         >
           <template #reference>
-            <van-icon name="more-o" size="18"/>
+            <icon name="more-o" size="18"/>
           </template>
-        </van-popover>
+        </popover>
       </template>
-    </van-nav-bar>
+    </nav-bar>
     <div class="content-wrap">
       <div class="content">
         个人设置页面<br/>
@@ -46,12 +46,14 @@
 
 </template>
 <script>
+import {NavBar, Popover, Icon} from "vant";
 import {createNamespacedHelpers} from 'vuex'
 
 const {mapActions} = createNamespacedHelpers('header');
 
 export default {
   name: 'SettingPage',
+  components: {NavBar, Popover, Icon},
   data() {
     return {
       showPopover: false,
@@ -95,8 +97,8 @@ export default {
   height: calc(100vh);
 
   .content-wrap {
-     height: calc(100vh - 46px);
-     overflow-y: auto;
+    height: calc(100vh - 46px);
+    overflow-y: auto;
     .content {
       //height: calc(100vh - 46px);
     }

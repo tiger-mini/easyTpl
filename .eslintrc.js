@@ -1,14 +1,36 @@
 module.exports = {
     root: true,
+    env: {
+        "node": true
+    },
+    parser: "vue-eslint-parser",
+    extends: [
+        'alloy',
+        'alloy/vue',
+    ],
     parserOptions: {
-        sourceType: 'module',
-        ecmaVersion: 2015
+        "parser": "babel-eslint",
+        "sourceType": 'module',
+        "ecmaVersion": 6,
     },
     // required to lint *.vue files
-    plugins: [],
+    plugins: ["simple-import-sort"],
+    globals: {
+        document: true,
+        window: true
+    },
     // add your custom rules here
-    'rules': {
+    rules: {
         // allow debugger during development
-        'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+        'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+        "vue/component-tags-order": ["error", {
+            "order": [ [ "script", "template" ], "style" ]
+        }],
+        "vue/no-reserved-component-names": ["off", {
+            "disallowVueBuiltInComponents": false,
+            "disallowVue3BuiltInComponents": false
+        }],
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error"
     }
 }

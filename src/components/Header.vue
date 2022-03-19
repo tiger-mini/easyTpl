@@ -1,24 +1,25 @@
 <template>
-  <van-nav-bar :title="header.title" left-arrow left-text="返回" v-show="!header.isHiddenGlobalHeader">
+  <nav-bar :title="header.title" left-arrow left-text="返回" v-show="!header.isHiddenGlobalHeader">
     <template #left>
-      <van-icon name="arrow-left" v-show="!menu.isMenu" @click="goBack"/>
+      <icon name="arrow-left" v-show="!menu.isMenu" @click="goBack"/>
     </template>
     <template #right>
       <div class="qr-class" />
       <template v-for="item in header.rightTemp">
-        <van-icon :name="item.iconName" size="18" class="right-op-icon" :class="item.className || ''" @click="item.fn"/>
+        <icon :name="item.iconName" size="18" class="right-op-icon" :class="item.className || ''" @click="item.fn"/>
       </template>
     </template>
-  </van-nav-bar>
+  </nav-bar>
 </template>
 
 <script>
 import {createNamespacedHelpers} from 'vuex'
-
+import { NavBar, Icon } from 'vant';
 const {mapState, mapActions} = createNamespacedHelpers(['header', 'menu']);
 
 export default {
   name: "HeaderComponent",
+  components: {NavBar, Icon},
   data() {
     return {
       isMenu: this.isMenu
