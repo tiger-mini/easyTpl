@@ -1,7 +1,7 @@
 export default [
     {
         path: '/home',
-        name: 'home',
-        component: () => import('./index')
-    }
+        name: '主页',
+        component: () => import('./index'),
+    },
 ];

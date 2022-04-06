@@ -1,7 +1,7 @@
 export default [
     {
         path: '/report',
-        name: 'report',
-        component: () => import('./index')
-    }
+        name: '报表',
+        component: () => import('./index'),
+    },
 ];

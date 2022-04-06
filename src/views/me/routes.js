@@ -3,12 +3,12 @@ import Me from './index';
 export default [
     {
         path: '/me',
-        name: 'me',
-        component: Me
+        name: '我',
+        component: Me,
     },
     {
         path: '/setting',
-        name: 'setting',
-        component: () => import('./setting')
-    }
+        name: '设置',
+        component: () => import('./setting'),
+    },
 ];

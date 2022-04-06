@@ -1,4 +1,6 @@
 const PXToVW = require('postcss-px-to-viewport');
+const path = require("path")
+const resolve = (dir) => path.join(__dirname, dir);
 
 // webpack配置
 const isDev = process.env.NODE_ENV === 'DEV' || process.env.NODE_ENV === 'development';
@@ -8,10 +10,9 @@ const baseConfig = {
     devServer: {
         open: true,
         port: 8080,
-        https: false,
         proxy: {
             '/': {
-                target: 'http://merchants.zhenye.com:91',
+                target: 'https://rental.test.myspacex.cn/',
                 ws: true,
                 changeOrigin: true,
                 // pathReWrite: {
@@ -25,15 +26,15 @@ const baseConfig = {
         sourceMap: isDev,
         loaderOptions: {
             scss: {
-                prependData: '@import "~@src/styles/variable.scss";'
+                // prependData: '@import "~@src/styles/variable.scss";'
             },
             postcss: {
                 plugins: [
-                    require('tailwindcss'),
+                    require('@tailwindcss/postcss7-compat'),
                     require('autoprefixer'),
                     new PXToVW({
                         unitToConvert: 'px',
-                        viewportWidth: 375,
+                        viewportWidth: 750,
                         unitPrecision: 5,
                         propList: ['*'],
                         viewportUnit: 'vw',
@@ -60,8 +61,18 @@ const baseConfig = {
             .use('postcss-style-px-to-viewport')
             .loader('postcss-style-px-to-viewport')
             .options({
-                viewportWidth: 375 // 此处的viewportWidth 需与 PXToVW 方法中的保持一致
+                viewportWidth: 750 // 此处的viewportWidth 需与 PXToVW 方法中的保持一致
             })
+
+        config.resolve.alias
+            .set("@api", resolve("./src/api"))
+            .set("@asset", resolve("./src/assets"))
+            .set("@constants", resolve("./src/constants"))
+            .set("@components", resolve("./src/components"))
+            .set("@plugins", resolve("./src/plugins"))
+            .set("@router", resolve("./src/router"))
+            .set("@styles", resolve("./src/styles"))
+            .set("@utils", resolve("./src/utils"));
 
     }
 }

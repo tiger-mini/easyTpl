@@ -1,5 +1,82 @@
-.html{
-  body{
-    
-  }
+// 安全区
+.safe-area-inset-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.safe-area-inset-top {
+  padding-top: constant(safe-area-inset-top);
+  padding-top: env(safe-area-inset-top);
+}
+
+.c-hidden {
+  display: none;
+}
+
+.c-24 {
+  font-size: 24px
+}
+
+.c-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// 颜色
+.c-color-title {
+  color: #121214;
+}
+
+.c-color-subTitle {
+  color: #868B8F;
+}
+
+// 标题
+.c-title-2 {
+  font-size: 36px;
+  .c-color-title();
+}
+
+.c-title-3 {
+@apply font-medium;
+  font-size: 32px;
+  .c-color-title();
+}
+
+.c-title-4 {
+@apply font-medium;
+  font-size: 28px;
+  .c-color-title();
+}
+
+.c-title-5 {
+@apply font-medium;
+  font-size: 26px;
+  .c-color-title();
+}
+
+// 副标题
+.c-subTitle-3 {
+  font-size: 26px;
+  .c-color-subTitle();
+}
+
+.c-subTitle-4 {
+  font-size: 24px;
+  .c-color-subTitle();
+}
+
+.c-subTitle-5 {
+  font-size: 22px;
+  .c-color-subTitle();
+}
+
+.c-overflow-scroll-y {
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+// 字体
+.c-font-oppo-sans {
+  font-family: 'oppo-sans';
+  letter-spacing: -0.5px;
 }
