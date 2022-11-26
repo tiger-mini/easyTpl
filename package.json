@@ -9,9 +9,14 @@
     "test:build": "vue-cli-service build --mode=test",
     "prod:build": "vue-cli-service build --mode=prod",
     "lint": "vue-cli-service lint",
-    "lint-fix": "eslint --fix src/**"
+    "lint-fix": "eslint --fix src/**",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "sonar": "sonar-scanner -Dproject.settings=./sonar-scanner.properties",
+    "crawling": "crawling"
   },
   "dependencies": {
+    "@ykj/reuse-file-sdk": "^0.3.1",
+    "@ykj/ykj-sdk": "1.0.3",
     "axios": "^0.26.0",
     "core-js": "^3.6.5",
     "dayjs": "^1.11.0",
@@ -32,6 +37,7 @@
     "autoprefixer": "^9",
     "babel-eslint": "^10.1.0",
     "babel-plugin-import": "^1.13.3",
+    "crawling-online-style-constant-to-css-file": "^1.9.0",
     "eslint": "^7.0.0",
     "eslint-config-alloy": "3",
     "eslint-plugin-simple-import-sort": "^7.0.0",
